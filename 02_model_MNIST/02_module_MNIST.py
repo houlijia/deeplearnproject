@@ -17,8 +17,8 @@ pipeline = transforms.Compose([
 ])
 
 # 下载数据
-train_set = datasets.MNIST('data', train=True, download=True, transform=pipeline)
-test_set = datasets.MNIST('data', train=False, download=True, transform=pipeline)
+train_set = datasets.MNIST(root='data', train=True, download=True, transform=pipeline)
+test_set = datasets.MNIST(root='data', train=False, download=True, transform=pipeline)
 
 # 加载数据集
 train_loader = DataLoader(train_set, batch_size=BATCH_SIZE, shuffle=True)
