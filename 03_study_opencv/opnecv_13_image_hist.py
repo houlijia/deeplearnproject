@@ -1,19 +1,21 @@
 import cv2
-import numpy as np
 import matplotlib
+
 matplotlib.use('TkAgg')
 import matplotlib.pyplot as plt
-
 
 plt.rcParams["font.family"] = ["Heiti TC"]  # 设置中文
 
 
-def plot_image_histogram(image_path, is_color):
+def plot_image_histogram(image_path):
+    """
+    image_path: input image path
+    """
     img = cv2.imread(image_path)
     if img is None:
         print(f"无法读取图像: {image_path}")
         return
-    plt.figure(figsize=(10, 5))
+    plt.figure(figsize=(10, 5))  # 设置画布的大小
 
     plt.subplot(121)
     plt.title("原始图像")
@@ -24,12 +26,12 @@ def plot_image_histogram(image_path, is_color):
     plt.subplot(122)
     plt.title('hist')
     hist = cv2.calcHist([origin_gray], [0], None, [256], [0, 256])
-    plt.plot(hist, color='black')  # hist的线为black
+    plt.plot(hist, color='black')  # 画hist的线为black颜色
     plt.xlabel("像素值")
     plt.ylabel('像素数')
     plt.show()
 
 
 if __name__ == '__main__':
-    image_path = './image/hist_image.jpg'
-    plot_image_histogram(image_path, True)
+    image = './image/hist_image.jpg'
+    plot_image_histogram(image)
