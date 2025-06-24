@@ -22,21 +22,14 @@ except subprocess.TimeoutExpired as e:
     print("进程已经kill")
 
 # 3.进程间管道通信
-# 生成数据进程
-p1 = subprocess.Popen(["python", "-c", "for i in range(5): print(i)"],
-                      stdin=subprocess.PIPE,
-                      stdout=subprocess.PIPE
-                      )
+# 生成数据
+p1 = subprocess.Popen(["python", "-c", "for i in range(5): print(i)"], stdout=subprocess.PIPE)
 
-# 处理数据进程
-p2 = subprocess.Popen(
-    ["python", "-c", "import sys; print('平方:', [int(line)**2 for line in sys.stdin])"],
-    stdin=p1.stdout,
-    stdout=subprocess.PIPE
-)
-
-# 关闭p1的stdout，避免阻塞
+# 处理数据
+p2 = subprocess.Popen(['python', '-c', "import sys; print('平方：',[int(line)**2 for line in sys.stdin])"],
+                      stdin=p1.stdout,
+                      stdout=subprocess.PIPE)
 p1.stdout.close()
-# 获取最终结果
-output, _ = p2.communicate()
-print(output.decode())  # 输出：平方: [0, 1, 4, 9, 16]
+
+
+

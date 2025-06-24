@@ -2,7 +2,7 @@ import cv2
 # https://codec.wang/docs/opencv/start/open-camera
 
 # 1、读取图片
-img = cv2.imread('./image/lena512color.tiff', 0)
+img = cv2.imread('./00.image/lena512color.tiff', 0)
 # 参数 2：读入方式，省略即采用默认值
 # cv2.IMREAD_COLOR：彩色图，默认值(1)
 # cv2.IMREAD_GRAYSCALE：灰度图(0)
