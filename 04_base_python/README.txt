@@ -48,3 +48,16 @@
         手动调用 gc.collect()
         分代回收阈值达到时（可通过 gc.get_threshold() 查看）
         程序退出时
+
+4、search() 和 match() 的区别
+    4.1 re.search(pattern, string)
+        会扫描整个字符串，查找正则表达式的第一个匹配项
+        无论匹配出现在字符串的什么位置都能找到
+        如果找到匹配则返回匹配对象，否则返回 None
+    4.2 re.match(pattern, string)
+        只在字符串的开头检查匹配
+        如果正则表达式不能从字符串的第一个字符开始匹配，则返回 None
+        相当于在正则表达式前自动加了 ^ 锚点
+
+5、Python中的Lambda 函数
+    使用方式：lambda arguments: expression （lambda：参数 表达式）
