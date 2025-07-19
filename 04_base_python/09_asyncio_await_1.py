@@ -28,7 +28,7 @@ asyncio.run(runtask())
 # 协程与任务(Task)
 print("---- 3、协程与任务(Task) ----")
 async def my_coroutine():
-    return 110
+    return "Hello 协程"
 
 async def runtask():
     # 将协程包装成任务
