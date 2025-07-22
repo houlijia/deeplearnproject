@@ -5,9 +5,9 @@ try:
     # 创建数据库连接
     connection = mysql.connector.connect(
         host='localhost',
-        user='your_username',
-        password='your_password',
-        database='your_database',
+        user='root',
+        password='rootroot',
+        database='testpython',
         port=3306,
         # 解决公钥检索问题
         allow_local_infile=True,
@@ -21,7 +21,7 @@ try:
         cursor = connection.cursor()
 
         # 示例1：执行查询
-        cursor.execute("SELECT * FROM your_table LIMIT 5")
+        cursor.execute("SELECT * FROM pythonsql LIMIT 5")
         results = cursor.fetchall()
 
         print("\n查询结果：")
@@ -38,7 +38,7 @@ try:
         # 示例3：使用Pandas读取数据
         import pandas as pd
 
-        df = pd.read_sql("SELECT * FROM your_table", connection)
+        df = pd.read_sql("SELECT * FROM pythonsql", connection)
         print("\nPandas DataFrame:")
         print(df.head())
 
