@@ -11,7 +11,7 @@ try:
         port=3306,
         # 解决公钥检索问题
         allow_local_infile=True,
-        auth_plugin='mysql_native_password'
+        auth_plugin='rootroot'
     )
 
     if connection.is_connected():
